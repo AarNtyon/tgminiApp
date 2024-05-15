@@ -1,11 +1,10 @@
-import { useState } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import WebApp from "@twa-dev/sdk";
-function App() {
-  const [count, setCount] = useState(0);
+import { TonConnectButton } from "@tonconnect/ui-react";
 
+function App() {
   return (
     <>
       <div>
@@ -16,27 +15,10 @@ function App() {
           <img src={reactLogo} className="logo react" alt="React logo" />
         </a>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-      <div className="card">
-        <button
-          onClick={() =>
-            WebApp.showAlert(`Hello World! Current count is ${count}`)
-          }
-        >
-          显示警告
-        </button>
-      </div>
+      <p>以下操作只在tg环境下有效</p>
+      <button onClick={() => WebApp.showAlert(`你打开了弹窗`)}>显示警告</button>
+      {/* <button onClick={() => WebApp.showAlert(`你打开了弹窗`)}>连接钱包</button> */}
+      <TonConnectButton />
     </>
   );
 }
